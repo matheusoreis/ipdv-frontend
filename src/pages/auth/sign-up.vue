@@ -1,3 +1,7 @@
-<template></template>
+<script lang="ts" setup>
+import SignUpCard from "@/components/auth/SignUpCard.vue";
+</script>
 
-<script lang="ts" setup></script>
+<template>
+  <SignUpCard />
+</template>

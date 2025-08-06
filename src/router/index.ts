@@ -12,6 +12,7 @@ import HomePage from "@/pages/index.vue";
 import SignInPage from "@/pages/auth/sign-in.vue";
 import SignUpPage from "@/pages/auth/sign-up.vue";
 import DashboardPage from "@/pages/dashboard/index.vue";
+import { useAuthStore } from "@/store/auth";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -58,6 +59,13 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to) => {
+  const auth = useAuthStore();
+  if (to.meta.requiresAuth && !auth.isTokenValid) {
+    return "/auth/sign-in";
+  }
 });
 
 router.onError((err, to) => {
