@@ -1,3 +1,13 @@
-<template></template>
+<script lang="ts" setup>
+import AuthHeader from "@/components/AuthHeader.vue";
+</script>
 
-<script lang="ts" setup></script>
+<template>
+  <v-app>
+    <AuthHeader />
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
+</template>

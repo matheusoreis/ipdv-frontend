@@ -1,3 +1,13 @@
-<template></template>
+<script lang="ts" setup>
+import MainHeader from "@/components/MainHeader.vue";
+</script>
 
-<script lang="ts" setup></script>
+<template>
+  <v-app>
+    <MainHeader />
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
+</template>

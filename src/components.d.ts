@@ -9,7 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AuthHeader: typeof import('./components/AuthHeader.vue')['default']
-    DashboardHeader: typeof import('./components/DashboardHeader.vue')['default']
+    DashboardHeader: typeof import('./components/dashboard/DashboardHeader.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     MainHeader: typeof import('./components/MainHeader.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

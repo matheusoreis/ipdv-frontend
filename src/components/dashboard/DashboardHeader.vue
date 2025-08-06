@@ -24,8 +24,14 @@
 <script lang="ts" setup>
 const menus = [
   {
-    title: "Voltar",
-    href: "/",
+    title: "Usuários",
+    description: "Gerência dos usuários do sistema.",
+    href: "/dashboard/users",
+  },
+  {
+    title: "Cargos",
+    description: "Gerência dos cargos do sistema.",
+    href: "/dashboard/roles",
   },
 ] as const;
 </script>
