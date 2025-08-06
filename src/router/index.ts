@@ -1,5 +1,59 @@
-import { createRouter, createWebHistory } from "vue-router/auto";
-import { routes } from "vue-router/auto-routes";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteRecordRaw,
+} from "vue-router/auto";
+
+import MainLayout from "@/layouts/MainLayout.vue";
+import AuthLayout from "@/layouts/AuthLayout.vue";
+import DashboardLayout from "@/layouts/dashboard/DashboardLayout.vue";
+
+import HomePage from "@/pages/index.vue";
+import SignInPage from "@/pages/auth/sign-in.vue";
+import SignUpPage from "@/pages/auth/sign-up.vue";
+import DashboardPage from "@/pages/dashboard/index.vue";
+
+const routes: RouteRecordRaw[] = [
+  {
+    path: "/",
+    component: MainLayout,
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: HomePage,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    component: AuthLayout,
+    children: [
+      {
+        path: "sign-in",
+        name: "SignIn",
+        component: SignInPage,
+      },
+      {
+        path: "sign-up",
+        name: "SignUp",
+        component: SignUpPage,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    component: DashboardLayout,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: "",
+        name: "DashboardHome",
+        component: DashboardPage,
+      },
+    ],
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
