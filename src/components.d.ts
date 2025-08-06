@@ -9,10 +9,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AuthHeader: typeof import('./components/AuthHeader.vue')['default']
-    copy: typeof import('./components/auth/SignInCard copy.vue')['default']
     DashboardCard: typeof import('./components/dashboard/DashboardCard.vue')['default']
     DashboardHeader: typeof import('./components/dashboard/DashboardHeader.vue')['default']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     MainHeader: typeof import('./components/MainHeader.vue')['default']
     RolesTable: typeof import('./components/dashboard/role/RolesTable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
