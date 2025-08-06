@@ -1,3 +1,5 @@
-<template></template>
+<template>
+  <DashboardCard />
+</template>
 
 <script lang="ts" setup></script>

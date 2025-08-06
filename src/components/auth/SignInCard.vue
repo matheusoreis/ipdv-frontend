@@ -8,6 +8,7 @@ const router = useRouter();
 
 const isLoading = ref(false);
 const errorMessage = ref("");
+const isUserDeactivated = ref(false);
 
 const email = ref("");
 const password = ref("");
@@ -27,6 +28,7 @@ function parseJwtExp(token: string): number | null {
 async function handleSignIn() {
   isLoading.value = true;
   errorMessage.value = "";
+  isUserDeactivated.value = false;
 
   if (!email.value.trim() || !password.value) {
     errorMessage.value = "Preencha o email e a senha.";
@@ -56,12 +58,23 @@ async function handleSignIn() {
       throw new Error("Resposta inválida do servidor.");
     }
 
+    console.log(data);
+
     const exp = parseJwtExp(data.token);
 
     auth.setToken(data.token);
     router.push("/dashboard");
   } catch (error: any) {
-    errorMessage.value = error.message || "Erro ao fazer login";
+    // Isso aqui não se deve fazer, o correto é fazer como fiz no backend que é tirar um Error e pegar a partir do typeof;
+    // Porém para ficar dentro do prazo, estou fazendo harded coded.
+    if (error.response?.data?.error === "Usuário está desativado!") {
+      isUserDeactivated.value = true;
+      errorMessage.value =
+        "Sua conta foi desativada. Entre em contato com o administrador do sistema.";
+    } else {
+      errorMessage.value =
+        error.response?.data?.error || error.message || "Erro ao fazer login";
+    }
   } finally {
     isLoading.value = false;
   }

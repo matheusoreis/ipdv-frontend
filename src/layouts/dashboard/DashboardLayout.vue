@@ -7,7 +7,9 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader.vue";
     <DashboardHeader />
 
     <v-main>
-      <router-view />
+      <v-container fluid class="pa-8">
+        <router-view />
+      </v-container>
     </v-main>
   </v-app>
 </template>

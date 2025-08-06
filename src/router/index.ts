@@ -12,6 +12,8 @@ import HomePage from "@/pages/index.vue";
 import SignInPage from "@/pages/auth/sign-in.vue";
 import SignUpPage from "@/pages/auth/sign-up.vue";
 import DashboardPage from "@/pages/dashboard/index.vue";
+import DashboardUsers from "@/pages/dashboard/users/index.vue";
+import DashboardRoles from "@/pages/dashboard/roles/index.vue";
 import { useAuthStore } from "@/store/auth";
 
 const routes: RouteRecordRaw[] = [
@@ -51,6 +53,16 @@ const routes: RouteRecordRaw[] = [
         path: "",
         name: "DashboardHome",
         component: DashboardPage,
+      },
+      {
+        path: "users",
+        name: "DashboardUsers",
+        component: DashboardUsers,
+      },
+      {
+        path: "roles",
+        name: "DashboardRoles",
+        component: DashboardRoles,
       },
     ],
   },
