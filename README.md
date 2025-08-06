@@ -18,7 +18,7 @@ Frontend construído com **Node.js**, **Vite**, **Vue** e **PostgreSQL** com aut
 
 ```bash
 git clone https://github.com/matheusoreis/ipdv-backend
-cd seu-repo
+cd ipdv-backend
 ```
 
 ### Instalar as dependências
